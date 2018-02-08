@@ -76,6 +76,7 @@
             updateview()
         }
         var ids = [1, 2, 3, 4];
+        var block = false;
         var container = document.getElementById('container');
         var mc = new Hammer(container);
         
@@ -95,11 +96,13 @@
             if(nowid==5) {
                 nowid--;
             }
-            document.getElementsByClassName("container")[0].id = "nocontrol";
-            mc = new Hammer(container);
+            //document.getElementsByClassName("container")[0].id = "nocontrol";
+            //mc = new Hammer(container);
+            block = true;
             setTimeout(function() {
-                document.getElementsByClassName("container")[0].id = "container";
-              console.log("delay");
+                //document.getElementsByClassName("container")[0].id = "container";
+              block = false;
+                console.log("delay");
                 
             }, 5000);
             console.log(nowid);
@@ -131,7 +134,7 @@
         }
         
         function updateview() {
-            if(preid) {
+            if(preid && !block) {
                 document.getElementById(preid.toString()).style.display = "none";
                 document.getElementById(nowid.toString()).style.display = "block";
             }
