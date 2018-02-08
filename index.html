@@ -52,7 +52,7 @@
     <!--<div class="switchp">
         <div class="switch" style="margin-left:0;width:30vw;">1</div>
     </div>-->
-    <div id="container" style="width:100vw;height:100vh;z-index:999;position:fixed;">
+    <div id="container" class="container" style="width:100vw;height:100vh;z-index:999;position:fixed;">
     </div>
         <img src="img/感情-1.jpg" id="1" />
         <img src="img/感情-2.jpg" id="2" style="display:none" />
@@ -95,9 +95,9 @@
             if(nowid==5) {
                 nowid--;
             }
-            document.getElementsByTagName("div")[0].id = "nocontrol";
+            document.getElementsByClass("div")[0].id = "nocontrol";
             setTimeout(function() {
-                document.getElementsByTagName("div")[0].id = "container";
+                document.getElementsByClass("div")[0].id = "container";
               console.log("delay");
                 mc = new Hammer(container);
             }, 1000);
