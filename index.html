@@ -82,7 +82,9 @@
         
         mc.on("panleft panright", function(ev) {
             console.log(ev);
+            console.log(block);
             preid = nowid;
+            if(!block){
             if (ev.type == "panleft") {
                 console.log("left");
                 nowid++;
@@ -96,8 +98,10 @@
             if(nowid==5) {
                 nowid--;
             }
+            
             //document.getElementsByClassName("container")[0].id = "nocontrol";
             //mc = new Hammer(container);
+            updateview();
             block = true;
             setTimeout(function() {
                 //document.getElementsByClassName("container")[0].id = "container";
@@ -106,7 +110,8 @@
                 
             }, 5000);
             console.log(nowid);
-            updateview();
+            } else {
+                console.log("block!!!");
         });
         
         document.addEventListener('keydown', checkKeycode);
@@ -134,7 +139,7 @@
         }
         
         function updateview() {
-            if(preid && !block) {
+            if(preid) {
                 document.getElementById(preid.toString()).style.display = "none";
                 document.getElementById(nowid.toString()).style.display = "block";
             }
