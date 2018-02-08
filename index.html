@@ -98,7 +98,7 @@
             updateview();
         });
         */
-        document.onkeydown = checkKeycode;
+        document.addEventListener('keydown', checkKeycode);
         function checkKeycode(event) {
             var keyDownEvent = event || window.event,
                 keycode = (keyDownEvent.which) ? keyDownEvent.which : keyDownEvent.keyCode;
