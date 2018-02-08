@@ -102,6 +102,7 @@
         function checkKeycode(event) {
             var keyDownEvent = event || window.event,
                 keycode = (keyDownEvent.which) ? keyDownEvent.which : keyDownEvent.keyCode;
+            preid = nowid;
             if(keycode == 37) {
                 console.log("k left");
                 nowid--;
