@@ -60,6 +60,9 @@
     </div>
     
     <script>
+        document.getElementById("2").style.display = "none";
+        document.getElementById("3").style.display = "none";
+        document.getElementById("4").style.display = "none";
         var nowid = 1;
         var preid = false;
         var url = window.location.href;
@@ -81,10 +84,19 @@
         mc.on("panleft panright", function(ev) {
             preid = nowid;
             if (ev == "panleft") {
+                console.log("left");
                 nowid++;
             } else {
+                console.log("right");
                 nowid--;
             }
+            if(nowid == 0) {
+                nowid++;
+            }
+            if(nowid==5) {
+                nowid--;
+            }
+            console.log(nowid);
             updateview();
         });
         
