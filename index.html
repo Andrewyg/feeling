@@ -99,6 +99,7 @@
             setTimeout(function() {
                 document.getElementById("nocontrol").id = "container";
               console.log("delay");
+                mc = new Hammer(container);
             }, 1000);
             console.log(nowid);
             updateview();
