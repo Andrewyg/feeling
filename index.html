@@ -45,16 +45,56 @@
             vertical-align:middle;
         }
     </style>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 </head>
 
 <body>
     <!--<div class="switchp">
         <div class="switch" style="margin-left:0;width:30vw;">1</div>
     </div>-->
-    <img src="img/感情-1.jpg" />
-    <img src="img/感情-2.jpg" />
-    <img src="img/感情-3.jpg" />
-    <img src="img/感情-4.jpg" />
+    <div id="container">
+        <img src="img/感情-1.jpg" id="1" />
+        <img src="img/感情-2.jpg" id="2" />
+        <img src="img/感情-3.jpg" id="3" />
+        <img src="img/感情-4.jpg" id="4" />
+    </div>
+    
+    <script>
+        var nowid = 1;
+        var preid = false;
+        var url = window.location.href;
+        var hash = false;
+        if(url.indexOf("#") != -1) {
+            hash = url.substring(url.indexOf("#")+1);
+            if(hash == "") {
+                hash = false;
+            }
+        }
+        if(hash) {
+            preid = nowid;
+            updateview()
+        }
+        var ids = [1, 2, 3, 4];
+        var container = document.getElementById('container');
+        var mc = new Hammer(container);
+        
+        mc.on("panleft panright", function(ev) {
+            preid = nowid;
+            if (ev == "panleft") {
+                nowid++;
+            } else {
+                nowid--;
+            }
+            updateview();
+        });
+        
+        function updateview() {
+            if(preid) {
+                document.getElementById(preid.toString()).style.display = "none";
+                document.getElementById(nowid.toString()).style.display = "block";
+            }
+        }
+            
 </body>
 
 </html>
