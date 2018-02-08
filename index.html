@@ -100,6 +100,28 @@
             updateview();
         });
         
+        document.onkeydown = checkKeycode;
+        function checkKeycode(event) {
+            var keyDownEvent = event || window.event,
+                keycode = (keyDownEvent.which) ? keyDownEvent.which : keyDownEvent.keyCode;
+            if(keycode == 37) {
+                console.log("k left");
+                nowid--;
+            }
+            if(keycode == 39) {
+                console.lof("k right")
+                nowid++
+            }
+            if(nowid == 0) {
+                nowid++;
+            }
+            if(nowid==5) {
+                nowid--;
+            }
+            console.log(nowid);
+            updateview();
+        }
+        
         function updateview() {
             if(preid) {
                 document.getElementById(preid.toString()).style.display = "none";
