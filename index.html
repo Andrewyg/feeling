@@ -95,9 +95,9 @@
             if(nowid==5) {
                 nowid--;
             }
-            document.getElementsByTag("div")[0].id = "nocontrol";
+            document.getElementsByTagName("div")[0].id = "nocontrol";
             setTimeout(function() {
-                document.getElementById("nocontrol").id = "container";
+                document.getElementsByTagName("div")[0].id = "container";
               console.log("delay");
                 mc = new Hammer(container);
             }, 1000);
