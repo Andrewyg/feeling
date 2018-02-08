@@ -95,8 +95,9 @@
             if(nowid==5) {
                 nowid--;
             }
-            
+            document.getElementById("container").id = "nocontrol";
             setTimeout(function() {
+                document.getElementById("nocontrol").id = "container";
               console.log("delay");
             }, 1000);
             console.log(nowid);
