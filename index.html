@@ -96,10 +96,11 @@
                 nowid--;
             }
             document.getElementsByClassName("container")[0].id = "nocontrol";
+            mc = new Hammer(container);
             setTimeout(function() {
                 document.getElementsByClassName("container")[0].id = "container";
               console.log("delay");
-                mc = new Hammer(container);
+                
             }, 5000);
             console.log(nowid);
             updateview();
