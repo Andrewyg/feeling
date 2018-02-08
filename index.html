@@ -82,7 +82,7 @@
         mc.on("panleft panright", function(ev) {
             console.log(ev);
             preid = nowid;
-            if (ev == "panleft") {
+            if (ev.type == "panleft") {
                 console.log("left");
                 nowid++;
             } else {
